@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SRICHARAN BASA | Software Developer</title>
+    <title>SRICHARAN BASA | AI Engineer</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -153,8 +154,8 @@
 
         /* --- SKILLS SECTION --- */
         .skills-container {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem; max-width: 1000px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem; max-width: 1200px; margin: 0 auto;
         }
         .skill-card {
             background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px;
@@ -167,6 +168,43 @@
         .skill-hint { font-size: 0.75rem; color: var(--text-gray); margin-top: 0.5rem; opacity: 0; transition: opacity 0.3s; }
         .skill-card:hover { transform: translateY(-10px); background: rgba(255,255,255,0.05); border-color: var(--accent); }
         .skill-card:hover .skill-hint { opacity: 1; }
+
+        /* --- CERTIFICATIONS SECTION --- */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .cert-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 1.5rem;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            transition: 0.3s;
+        }
+        .cert-card:hover {
+            border-color: var(--accent);
+            background: rgba(124, 58, 237, 0.05);
+            transform: scale(1.02);
+        }
+        .cert-icon {
+            font-size: 2rem;
+            color: var(--accent);
+            background: rgba(124, 58, 237, 0.1);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+        }
+        .cert-info h4 { font-size: 1.1rem; margin-bottom: 2px; }
+        .cert-info p { font-size: 0.85rem; color: var(--text-gray); }
 
         /* --- MODAL --- */
         .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px); }
@@ -185,7 +223,7 @@
             background: var(--card-bg); border-radius: 15px; overflow: hidden; border: 1px solid var(--card-border); transition: all 0.4s ease;
         }
         .project-card:hover { transform: translateY(-10px); border-color: var(--accent); }
-        .project-content { padding: 2rem; }
+        .project-content { padding: 2rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
         .project-tech { color: var(--accent); font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }
         
         /* --- CONTACT --- */
@@ -209,15 +247,55 @@
             .about-wrapper { grid-template-columns: 1fr; }
             .tab-header { justify-content: space-between; }
         }
+
+        /* --- NEW PROFESSIONAL SECTIONS STYLES --- */
+        .experience-card {
+            background: var(--card-bg); border: 1px solid var(--card-border); 
+            padding: 2rem; border-radius: 15px; margin-bottom: 2rem; position: relative;
+            transition: 0.3s;
+        }
+        .experience-card:hover { border-color: var(--accent); transform: translateX(10px); }
+        .exp-dot {
+            position: absolute; left: -10px; top: 2.5rem; width: 20px; height: 20px;
+            background: var(--accent); border-radius: 50%; box-shadow: var(--glow);
+        }
+        
+        .tech-ticker {
+            padding: 2rem 0; background: #050505; border-top: 1px solid #111; border-bottom: 1px solid #111;
+            overflow: hidden; white-space: nowrap;
+        }
+        .ticker-wrapper { display: inline-block; animation: ticker 30s linear infinite; }
+        .ticker-item { display: inline-block; margin: 0 3rem; color: var(--text-gray); font-weight: 600; font-size: 1.2rem; }
+        .ticker-item i { color: var(--accent); margin-right: 10px; }
+        @keyframes ticker { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-50%, 0, 0); } }
+
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .testimonial-card {
+            background: rgba(255,255,255,0.02); padding: 2rem; border-radius: 15px; border-left: 4px solid var(--accent);
+        }
+        .quote { font-style: italic; margin-bottom: 1rem; color: var(--text-gray); }
+        .author { font-weight: 600; color: #fff; display: block; }
+
+        #backToTop {
+            position: fixed; bottom: 30px; right: 30px; background: var(--primary-gradient);
+            width: 50px; height: 50px; border-radius: 50%; display: none; align-items: center;
+            justify-content: center; font-size: 1.5rem; cursor: pointer; z-index: 999;
+            box-shadow: var(--glow); border: none; color: white; transition: 0.3s;
+        }
+        #backToTop:hover { transform: scale(1.1); }
     </style>
 </head>
 <body>
+
+    <button id="backToTop" onclick="window.scrollTo(0,0)"><i class="fa-solid fa-arrow-up"></i></button>
 
     <nav>
         <div class="logo">BS</div>
         <div class="nav-links">
             <a href="#about">About</a>
+            <a href="#experience">Experience</a>
             <a href="#skills">Skills</a>
+            <a href="#certifications">Certifications</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
         </div>
@@ -225,11 +303,11 @@
 
     <section class="hero">
         <div class="hero-content fade-in">
-            <h1>Hi, I’m Sricharan<br> <span>Aspiring Developer</span></h1>
-            <p>I build interactive, scalable, and responsive software solutions. Let's turn ideas into reality through code.</p>
+            <h1>Hi, I’m Sricharan<br> <span>Aspiring AI Engineer</span></h1>
+            <p>I build interactive, scalable, and intelligent software solutions. Specializing in Generative AI, LLMs, and robust backend architectures.</p>
             <div class="hero-btns">
                 <a href="#projects" class="btn-primary">View My Work</a>
-                <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+                <a href="resume1.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary">
                     <i class="fa-solid fa-download"></i> Download Resume
                 </a>
             </div>
@@ -242,15 +320,32 @@
         </div>
     </section>
 
+    <div class="tech-ticker">
+        <div class="ticker-wrapper">
+            <span class="ticker-item"><i class="fa-brands fa-python"></i> PYTHON</span>
+            <span class="ticker-item"><i class="fa-brands fa-java"></i> JAVA</span>
+            <span class="ticker-item"><i class="fa-solid fa-microchip"></i> LLMs</span>
+            <span class="ticker-item"><i class="fa-solid fa-link"></i> LANGCHAIN</span>
+            <span class="ticker-item"><i class="fa-brands fa-aws"></i> AWS</span>
+            <span class="ticker-item"><i class="fa-solid fa-database"></i> SQL</span>
+            <span class="ticker-item"><i class="fa-brands fa-docker"></i> DOCKER</span>
+            <span class="ticker-item"><i class="fa-brands fa-python"></i> PYTHON</span>
+            <span class="ticker-item"><i class="fa-brands fa-java"></i> JAVA</span>
+            <span class="ticker-item"><i class="fa-solid fa-microchip"></i> LLMs</span>
+            <span class="ticker-item"><i class="fa-solid fa-link"></i> LANGCHAIN</span>
+            <span class="ticker-item"><i class="fa-brands fa-aws"></i> AWS</span>
+        </div>
+    </div>
+
     <section id="about" class="section">
         <h2 class="section-title fade-in"><span>About Me</span></h2>
         
         <div class="about-wrapper fade-in">
             <div class="about-profile">
                 <div class="stat-card">
-                    <i class="fa-solid fa-code"></i>
-                    <h3>Problem Solver</h3>
-                    <p>Turning logic into code</p>
+                    <i class="fa-solid fa-brain"></i>
+                    <h3>AI Specialist</h3>
+                    <p>Building with LLMs & RAG</p>
                 </div>
                 <div class="stat-card">
                     <i class="fa-solid fa-graduation-cap"></i>
@@ -273,14 +368,20 @@
 
                 <div id="story" class="tab-body active-tab">
                     <p>
-                    I am a motivated 2025 graduate aspiring to build a strong career in software development
-                    and cloud technologies. I have hands-on experience with Java, Python, web technologies,
-                    and basic cloud services through academic and self-driven projects.
+                    <h3>The Architect of Intelligence:</h3>
+                     As a 2025 graduate stepping into the AI landscape, I don't just write code; I design systems that think.
+					 My expertise lies in transforming raw data into intelligent action, specializing in Agentic AI and RAG-based architectures.
+					 By mastering the interplay between LLMs and robust backend frameworks, I build solutions that don't just respond to user inputs—they anticipate needs and automate complex decision-making processes.
+                   <br><br>
+                      <h3>The Innovation Catalyst:</h3>
+					 
+                      I am driven by the belief that AI should be accessible, scalable, and impact-oriented.
+					  From developing Real-time Accident Detection systems to engineering NLP pipelines, my work is a testament to my ability to stay ahead of the technical curve.
+					  I am looking for a role where I can merge my proficiency in Python and Java with cloud-native deployment strategies, contributing to a team that views "the impossible" simply as a prompt for the next great breakthrough.
                     <br><br>
-                    I enjoy solving problems, writing clean and efficient code, and continuously upgrading
-                    my skills by learning new tools and industry best practices. I am a quick learner,
-                     adaptable to new environments, and passionate about contributing to real-world
-                     applications while growing as a professional software engineer.
+                    I enjoy solving complex problems, writing clean code, and building systems that bridge the gap 
+                    between data and user experience. I am an adaptable learner, passionate about the 
+                    evolving landscape of Large Language Models and Cloud Computing.
                   </p>
                 </div>
 
@@ -304,13 +405,40 @@
 
                 <div id="vision" class="tab-body">
                     <h3>My Goal</h3>
-                    <p>To bridge the gap between complex backend logic and seamless user experience.</p>
+                    <p>To develop autonomous AI agents that solve real-world productivity challenges.</p>
                     <ul class="vision-list">
                         <li><i class="fa-solid fa-check"></i> Master Cloud Architecture (AWS/Azure)</li>
-                        <li><i class="fa-solid fa-check"></i> Contribute to Open Source Projects</li>
+                        <li><i class="fa-solid fa-check"></i> Contribute to Open Source AI Projects</li>
                         <li><i class="fa-solid fa-check"></i> Build scalable AI-driven applications</li>
                     </ul>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section" style="background: rgba(255,255,255,0.01);">
+        <h2 class="section-title fade-in"><span>Experience</span></h2>
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <div class="experience-card fade-in">
+                <div class="exp-dot"></div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <h3>AI Engineer Trainee/Intern</h3>
+                    <span style="color: var(--accent); font-weight: 600;">oct 2025</span>
+                </div>
+                <h4 style="color: var(--text-gray); margin-bottom: 1rem;">CPS IT Technologies LLp</h4>
+                <p> Currently serving as an AI/ML Trainee & Intern, I have hands-on experience with Python, NLP, Generative AI, Agentic AI, RAG, LangChain, and Large Language Models (LLMs).
+				I am currently undergoing advanced training in Generative AI and Agentic AI.
+				I also handle end-to-end project deployment on AWS & GCP, delivering scalable AI solutions.</p>
+            </div>
+            
+            <div class="experience-card fade-in">
+                <div class="exp-dot"></div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <h3>Open Source Contributor</h3>
+                    <span style="color: var(--accent); font-weight: 600;">Present</span>
+                </div>
+                <h4 style="color: var(--text-gray); margin-bottom: 1rem;">GitHub Community</h4>
+                <p>Actively building and maintaining repositories focused on sentiment analysis and automation tools using Python and LLMs.</p>
             </div>
         </div>
     </section>
@@ -333,9 +461,39 @@
                 <h4>HTML5 / CSS3</h4>
                 <div class="skill-hint">Click for info</div>
             </div>
-            <div class="skill-card fade-in" onclick="openModal('AI')">
-                <i class="fa-solid fa-brain"></i>
-                <h4>AI / ML</h4>
+            <div class="skill-card fade-in" onclick="openModal('GenAI')">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <h4>Generative AI</h4>
+                <div class="skill-hint">Click for info</div>
+            </div>
+            <div class="skill-card fade-in" onclick="openModal('AgenticAI')">
+                <i class="fa-solid fa-robot"></i>
+                <h4>Agentic AI</h4>
+                <div class="skill-hint">Click for info</div>
+            </div>
+            <div class="skill-card fade-in" onclick="openModal('LLM')">
+                <i class="fa-solid fa-microchip"></i>
+                <h4>LLMs & RAG</h4>
+                <div class="skill-hint">Click for info</div>
+            </div>
+            <div class="skill-card fade-in" onclick="openModal('LangStack')">
+                <i class="fa-solid fa-link"></i>
+                <h4>LangChain & Graph</h4>
+                <div class="skill-hint">Click for info</div>
+            </div>
+            <div class="skill-card fade-in" onclick="openModal('NLP')">
+                <i class="fa-solid fa-language"></i>
+                <h4>NLP</h4>
+                <div class="skill-hint">Click for info</div>
+            </div>
+            <div class="skill-card fade-in" onclick="openModal('DataCleaning')">
+                <i class="fa-solid fa-filter"></i>
+                <h4>Data Cleaning</h4>
+                <div class="skill-hint">Click for info</div>
+            </div>
+            <div class="skill-card fade-in" onclick="openModal('Cloud')">
+                <i class="fa-solid fa-cloud"></i>
+                <h4>AWS & GCP</h4>
                 <div class="skill-hint">Click for info</div>
             </div>
             <div class="skill-card fade-in" onclick="openModal('SQL')">
@@ -347,6 +505,53 @@
                 <i class="fa-brands fa-git-alt"></i>
                 <h4>Git & GitHub</h4>
                 <div class="skill-hint">Click for info</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" class="section">
+        <h2 class="section-title fade-in"><span>Certifications</span></h2>
+        <div class="cert-grid">
+            <div class="cert-card fade-in">
+                <div class="cert-icon"><i class="fa-solid fa-award"></i></div>
+                <div class="cert-info">
+                    <h4>Generative AI Fundamentals</h4>
+                    <p>Udemy</p>
+                </div>
+            </div>
+            <div class="cert-card fade-in">
+                <div class="cert-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <div class="cert-info">
+                    <h4>Sql </h4>
+                    <p>IBM </p>
+                </div>
+            </div>
+            <div class="cert-card fade-in">
+                <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+                <div class="cert-info">
+                    <h4>programming in Java </h4>
+                    <p>NPTEL</p>
+                </div>
+            </div>
+            <div class="cert-card fade-in">
+                <div class="cert-icon"><i class="fa-solid fa-code-branch"></i></div>
+                <div class="cert-info">
+                    <h4>Generative AI</h4>
+                    <p>Upgrad</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title fade-in"><span>Recommendations</span></h2>
+        <div class="testimonial-grid fade-in">
+            <div class="testimonial-card">
+                <p class="quote">"Sricharan's ability to understand the complex landscape of Agentic AI and implement it into practical projects like accident detection is truly impressive."</p>
+                <span class="author">— Academic Mentor, BIHER</span>
+            </div>
+            <div class="testimonial-card">
+                <p class="quote">"An exceptionally dedicated engineer who bridges the gap between raw data and intelligent user experiences with clean, scalable code."</p>
+                <span class="author">— Project Supervisor</span>
             </div>
         </div>
     </section>
@@ -364,25 +569,43 @@
         <div class="projects-grid">
             <div class="project-card fade-in">
                 <div class="project-content">
-                    <h3> Toxic Comment Classification</h3>
-                    <p class="project-tech">wordcloud • sklearn • pickle</p>
-                    <p style="color: #999; margin-bottom: 1rem;">A machine learning model that aims to develop a robust system for identifying and filtering toxic comments in online platforms.</p>
+                    <div>
+                        <h3>NLP-Sentiment Analysis</h3>
+                        <p class="project-tech"> Python Programming • HuggingFace • NLTK • AWS</p>
+                        <p style="color: #999; margin-bottom: 1rem;"> • Built a sentiment analysis system to classify text
+ • Detects positive, negative, and neutral sentiments
+ • Converts unstructured text into actionable insights</p>
+                    </div>
+                    <a href="https://github.com/SRICHARAN-BASA/NLP-Sentiment-Analysis.git" target="_blank" rel="noopener noreferrer" style="color: var(--accent);"><i class="fa-brands fa-github"></i> View Code</a>
+                </div>
+            </div>
+            <div class="project-card fade-in">
+                <div class="project-content">
+                    <div>
+                        <h3>Toxic Comment Classification</h3>
+                        <p class="project-tech">wordcloud • sklearn • pickle</p>
+                        <p style="color: #999; margin-bottom: 1rem;">A machine learning model that aims to develop a robust system for identifying and filtering toxic comments in online platforms.</p>
+                    </div>
                     <a href="https://github.com/SRICHARAN-BASA/Toxic-comment-classification.git" target="_blank" rel="noopener noreferrer" style="color: var(--accent);"><i class="fa-brands fa-github"></i> View Code</a>
                 </div>
             </div>
             <div class="project-card fade-in">
                 <div class="project-content">
-                    <h3>Realtime Accident Detection and Response System</h3>
-                    <p class="project-tech">python • TensorFlow • keras</p>
-                    <p style="color: #999; margin-bottom: 1rem;">An AI-driven accident detection system, capable of analyzing real-time data points,leading to a 20% faster emergency response time.</p>
+                    <div>
+                        <h3>Realtime Accident Detection</h3>
+                        <p class="project-tech">python • TensorFlow • keras</p>
+                        <p style="color: #999; margin-bottom: 1rem;">An AI-driven accident detection system, capable of analyzing real-time data points, leading to a 20% faster emergency response time.</p>
+                    </div>
                     <a href="https://github.com/SRICHARAN-BASA/Accidident-Detection-And-Response-System" target="_blank" rel="noopener noreferrer" style="color: var(--accent);"><i class="fa-brands fa-github"></i> View Code</a>
                 </div>
             </div>
             <div class="project-card fade-in">
                 <div class="project-content">
-                    <h3>Personal Portfolio</h3>
-                    <p class="project-tech">HTML • CSS • JavaScript</p>
-                    <p style="color: #999; margin-bottom: 1rem;">The responsive website you are viewing right now, featuring animations, hover effects, and a modern UI.</p>
+                    <div>
+                        <h3>Personal Portfolio</h3>
+                        <p class="project-tech">HTML • CSS • JavaScript</p>
+                        <p style="color: #999; margin-bottom: 1rem;">The responsive website you are viewing right now, featuring animations, hover effects, and a modern UI.</p>
+                    </div>
                     <a href="https://github.com/SRICHARAN-BASA/my-portfolio-project.git" target="_blank" rel="noopener noreferrer" style="color: var(--accent);"><i class="fa-brands fa-github"></i> View Code</a>
                 </div>
             </div>
@@ -413,8 +636,8 @@
         </div>
     </section>
 
-    <footer style="text-align: center; padding: 2rem; background: #050505; color: #666;">
-        <p>&copy; 2025 Basa Sricharan. All rights reserved.</p>
+    <footer style="text-align: center; padding: 3rem; background: #050505; color: #666; border-top: 1px solid #111;">
+        <p>&copy; 2025 Basa Sricharan. Designed for the future of AI.</p>
     </footer>
 
     <script>
@@ -452,7 +675,13 @@
             "Java": ["OOPs Concepts", "Exception Handling", "Collections Framework", "Spring Boot Basics", "Multithreading"],
             "Python": ["Data Structures", "Pandas & NumPy", "Flask / Django", "Automation Scripts"],
             "WebDev": ["Semantic HTML5", "CSS3 Flexbox & Grid", "JavaScript (ES6+)", "Responsive Design"],
-            "AI": ["Neural Networks", "Data Preprocessing", "TensorFlow/Keras", "NLP Basics"],
+            "GenAI": ["Prompt Engineering", "Image Generation (DALL-E/Midjourney)", "Stable Diffusion", "Content Synthesis"],
+            "AgenticAI": ["Autonomous Agents", "Multi-Agent Systems", "Task Planning & Reasoning", "Tool Use (Function Calling)"],
+            "LLM": ["Retrieval Augmented Generation (RAG)", "Vector Databases (Pinecone/Chroma)", "Fine-tuning Basics", "Tokenization & Embeddings"],
+            "LangStack": ["LangChain Framework", "LangGraph for State Machines", "Chain of Thought Prompting", "Memory Management"],
+            "NLP": ["Text Classification", "Sentiment Analysis", "Named Entity Recognition (NER)", "Transformers & BERT"],
+            "DataCleaning": ["Outlier Detection", "Handling Missing Values", "Feature Engineering", "Data Normalization"],
+            "Cloud": ["AWS (EC2, S3, Lambda)", "GCP (App Engine, Cloud Functions)", "Cloud Storage & Deployment", "Serverless Architecture"],
             "SQL": ["Relational Design", "Joins & Subqueries", "Normalization", "ACID Properties"],
             "Git": ["Version Control", "Branching & Merging", "Pull Requests", "CI/CD Basics"]
         };
@@ -462,7 +691,15 @@
         const modalList = document.getElementById("modalList");
 
         function openModal(skillKey) {
-            modalTitle.innerText = skillKey === "WebDev" ? "HTML / CSS / JS" : skillKey;
+            const displayNames = {
+                "WebDev": "HTML / CSS / JS",
+                "GenAI": "Generative AI",
+                "AgenticAI": "Agentic AI",
+                "LLM": "LLMs & RAG",
+                "LangStack": "LangChain & LangGraph",
+                "Cloud": "AWS & GCP"
+            };
+            modalTitle.innerText = displayNames[skillKey] || skillKey;
             modalList.innerHTML = "";
             if(skillData[skillKey]) {
                 skillData[skillKey].forEach(topic => {
@@ -483,6 +720,16 @@
                 modal.style.display = "none";
             }
         }
+
+        // --- Back to Top Logic ---
+        window.onscroll = function() {
+            const btn = document.getElementById("backToTop");
+            if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+                btn.style.display = "flex";
+            } else {
+                btn.style.display = "none";
+            }
+        };
 
         // --- 4. Form Submission Logic (AJAX) ---
         var form = document.getElementById("my-form");
