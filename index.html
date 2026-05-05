@@ -81,6 +81,7 @@
             display: inline-block; padding: 12px 30px; background: var(--primary-gradient);
             border-radius: 50px; font-weight: 600; box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
             transition: all 0.3s ease; border: none; cursor: pointer; color: white;
+            text-align: center;
         }
         .btn-primary:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 10px 25px rgba(124, 58, 237, 0.6); }
 
@@ -102,9 +103,10 @@
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
 
         /* --- SECTIONS GENERAL --- */
-        .section { padding: 6rem 10%; }
+        .section { padding: 4rem 10%; }
         .section-title { font-size: 2.5rem; margin-bottom: 3rem; text-align: center; }
         .section-title span { border-bottom: 3px solid var(--accent); }
+        .subsection-title { font-size: 1.8rem; margin: 2rem 0; color: var(--accent); }
 
         /* --- ABOUT SECTION --- */
         .about-wrapper {
@@ -151,103 +153,27 @@
         .vision-list li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
         .vision-list i { color: var(--accent); }
 
-        /* --- SKILLS SECTION --- */
-        .skills-container {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 2rem; max-width: 1200px; margin: 0 auto;
-        }
-        .skill-card {
-            background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px;
-            padding: 2rem; text-align: center; transition: all 0.4s ease; cursor: pointer;
-        }
-        .skill-card i {
-            font-size: 3rem; margin-bottom: 1rem; background: var(--primary-gradient);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-        .skill-hint { font-size: 0.75rem; color: var(--text-gray); margin-top: 0.5rem; opacity: 0; transition: opacity 0.3s; }
-        .skill-card:hover { transform: translateY(-10px); background: rgba(255,255,255,0.05); border-color: var(--accent); }
-        .skill-card:hover .skill-hint { opacity: 1; }
-
-        /* --- CERTIFICATIONS SECTION --- */
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .cert-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            padding: 1.5rem;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            gap: 1.2rem;
-            transition: 0.3s;
-        }
-        .cert-card:hover {
-            border-color: var(--accent);
-            background: rgba(124, 58, 237, 0.05);
-            transform: scale(1.02);
-        }
-        .cert-icon {
-            font-size: 2rem;
-            color: var(--accent);
-            background: rgba(124, 58, 237, 0.1);
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-        }
-        .cert-info h4 { font-size: 1.1rem; margin-bottom: 2px; }
-        .cert-info p { font-size: 0.85rem; color: var(--text-gray); }
-
-        /* --- MODAL --- */
-        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px); }
-        .modal-content {
-            background: #111; border: 1px solid var(--accent); margin: 15% auto; padding: 2rem;
-            border-radius: 15px; width: 90%; max-width: 500px; position: relative; animation: modalFade 0.4s;
-        }
-        @keyframes modalFade { from {opacity: 0; transform: translateY(-50px);} to {opacity: 1; transform: translateY(0);} }
-        .close-btn { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
-        .close-btn:hover { color: #fff; }
-        .modal-list li { list-style: disc; margin-bottom: 10px; margin-left: 20px; }
-
         /* --- PROJECTS --- */
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 4rem; }
         .project-card {
             background: var(--card-bg); border-radius: 15px; overflow: hidden; border: 1px solid var(--card-border); transition: all 0.4s ease;
+            height: 100%;
         }
         .project-card:hover { transform: translateY(-10px); border-color: var(--accent); }
         .project-content { padding: 2rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
         .project-tech { color: var(--accent); font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }
-        
-        /* --- CONTACT --- */
-        .contact-container { display: flex; flex-direction: column; align-items: center; max-width: 600px; margin: 0 auto; }
-        .contact-form { width: 100%; display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
-        input, textarea {
-            width: 100%; padding: 15px; background: #111; border: 1px solid #333;
-            border-radius: 8px; color: #fff; font-family: 'Poppins', sans-serif;
-        }
-        input:focus, textarea:focus { outline: none; border-color: var(--accent); }
-        .social-links { display: flex; gap: 2rem; font-size: 1.8rem; }
-        .social-links a:hover { color: var(--accent); transform: translateY(-5px); }
 
-        /* --- MEDIA QUERIES --- */
-        @media (max-width: 768px) {
-            .hero { flex-direction: column-reverse; text-align: center; padding-top: 120px; }
-            .hero-btns { justify-content: center; }
-            .hero-image-container { margin-bottom: 2rem; }
-            .profile-img-box { width: 250px; height: 250px; }
-            .nav-links { display: none; }
-            .about-wrapper { grid-template-columns: 1fr; }
-            .tab-header { justify-content: space-between; }
+        /* --- TICKER --- */
+        .tech-ticker {
+            padding: 2rem 0; background: #050505; border-top: 1px solid #111; border-bottom: 1px solid #111;
+            overflow: hidden; white-space: nowrap;
         }
+        .ticker-wrapper { display: inline-block; animation: ticker 30s linear infinite; }
+        .ticker-item { display: inline-block; margin: 0 3rem; color: var(--text-gray); font-weight: 600; font-size: 1.2rem; }
+        .ticker-item i { color: var(--accent); margin-right: 10px; }
+        @keyframes ticker { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-50%, 0, 0); } }
 
-        /* --- NEW PROFESSIONAL SECTIONS STYLES --- */
+        /* --- EXPERIENCE --- */
         .experience-card {
             background: var(--card-bg); border: 1px solid var(--card-border); 
             padding: 2rem; border-radius: 15px; margin-bottom: 2rem; position: relative;
@@ -258,22 +184,17 @@
             position: absolute; left: -10px; top: 2.5rem; width: 20px; height: 20px;
             background: var(--accent); border-radius: 50%; box-shadow: var(--glow);
         }
-        
-        .tech-ticker {
-            padding: 2rem 0; background: #050505; border-top: 1px solid #111; border-bottom: 1px solid #111;
-            overflow: hidden; white-space: nowrap;
-        }
-        .ticker-wrapper { display: inline-block; animation: ticker 30s linear infinite; }
-        .ticker-item { display: inline-block; margin: 0 3rem; color: var(--text-gray); font-weight: 600; font-size: 1.2rem; }
-        .ticker-item i { color: var(--accent); margin-right: 10px; }
-        @keyframes ticker { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-50%, 0, 0); } }
 
-        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .testimonial-card {
-            background: rgba(255,255,255,0.02); padding: 2rem; border-radius: 15px; border-left: 4px solid var(--accent);
+        /* --- CONTACT --- */
+        .contact-container { display: flex; flex-direction: column; align-items: center; max-width: 600px; margin: 0 auto; }
+        .contact-form { width: 100%; display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+        input, textarea {
+            width: 100%; padding: 15px; background: #111; border: 1px solid #333;
+            border-radius: 8px; color: #fff; font-family: 'Poppins', sans-serif;
         }
-        .quote { font-style: italic; margin-bottom: 1rem; color: var(--text-gray); }
-        .author { font-weight: 600; color: #fff; display: block; }
+        input:focus, textarea:focus { outline: none; border-color: var(--accent); }
+        .social-links { display: flex; gap: 2.5rem; font-size: 1.8rem; justify-content: center; margin-top: 2rem; }
+        .social-links a:hover { color: var(--accent); transform: translateY(-5px); }
 
         #backToTop {
             position: fixed; bottom: 30px; right: 30px; background: var(--primary-gradient);
@@ -281,7 +202,36 @@
             justify-content: center; font-size: 1.5rem; cursor: pointer; z-index: 999;
             box-shadow: var(--glow); border: none; color: white; transition: 0.3s;
         }
-        #backToTop:hover { transform: scale(1.1); }
+
+        /* --- LINKEDIN BADGE FIXES --- */
+        .linkedin-container {
+            display: flex; justify-content: center; align-items: center;
+            width: 100%; max-width: 800px; margin: 0 auto; padding: 2rem;
+        }
+        .badge-wrapper {
+            background: rgba(255, 255, 255, 0.03); 
+            border: 1px solid var(--card-border);
+            padding: 2.5rem; 
+            border-radius: 20px; 
+            width: 100%; 
+            display: flex; 
+            justify-content: center;
+            transition: 0.3s;
+        }
+        .badge-wrapper:hover { border-color: var(--accent); box-shadow: var(--glow); }
+        .LI-profile-badge { margin: 0 auto !important; }
+
+        footer { text-align: center; padding: 2rem; border-top: 1px solid #222; color: var(--text-gray); font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .hero { flex-direction: column-reverse; text-align: center; padding-top: 120px; }
+            .hero-btns { justify-content: center; }
+            .profile-img-box { width: 250px; height: 250px; }
+            .nav-links { display: none; }
+            .about-wrapper { grid-template-columns: 1fr; }
+            .badge-wrapper { padding: 1rem; }
+            .LI-profile-badge { transform: scale(0.85); transform-origin: center; }
+        }
     </style>
 </head>
 <body>
@@ -293,8 +243,6 @@
         <div class="nav-links">
             <a href="#about">About</a>
             <a href="#experience">Experience</a>
-            <a href="#skills">Skills</a>
-            <a href="#certifications">Certifications</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
         </div>
@@ -306,15 +254,14 @@
             <p>I build interactive, scalable, and intelligent software solutions. Specializing in Generative AI, LLMs, and robust backend architectures.</p>
             <div class="hero-btns">
                 <a href="#projects" class="btn-primary">View My Work</a>
-                <a href="./resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+                <a href="resume.pdf" target="_blank" class="btn-secondary">
                     <i class="fa-solid fa-download"></i> Download Resume
                 </a>
             </div>
         </div>
-        
         <div class="hero-image-container fade-in">
             <div class="profile-img-box">
-                <img src="profile.jpg" alt="Basa Sricharan" class="profile-img">
+                <img src="profile.jpg" alt="SRICHARAN BASA" class="profile-img">
             </div>
         </div>
     </section>
@@ -331,14 +278,11 @@
             <span class="ticker-item"><i class="fa-brands fa-python"></i> PYTHON</span>
             <span class="ticker-item"><i class="fa-brands fa-java"></i> JAVA</span>
             <span class="ticker-item"><i class="fa-solid fa-microchip"></i> LLMs</span>
-            <span class="ticker-item"><i class="fa-solid fa-link"></i> LANGCHAIN</span>
-            <span class="ticker-item"><i class="fa-brands fa-aws"></i> AWS</span>
         </div>
     </div>
 
     <section id="about" class="section">
         <h2 class="section-title fade-in"><span>About Me</span></h2>
-        
         <div class="about-wrapper fade-in">
             <div class="about-profile">
                 <div class="stat-card">
@@ -366,46 +310,30 @@
                 </div>
 
                 <div id="story" class="tab-body active-tab">
-                    <p>
                     <h3>The Architect of Intelligence:</h3>
-                     As a 2025 graduate stepping into the AI landscape, I don't just write code; I design systems that think.
-					 My expertise lies in transforming raw data into intelligent action, specializing in Agentic AI and RAG-based architectures.
-					 By mastering the interplay between LLMs and robust backend frameworks, I build solutions that don't just respond to user inputs—they anticipate needs and automate complex decision-making processes.
-                   <br><br>
-                      <h3>The Innovation Catalyst:</h3>
-					 
-                      I am driven by the belief that AI should be accessible, scalable, and impact-oriented.
-					  From developing Real-time Accident Detection systems to engineering NLP pipelines, my work is a testament to my ability to stay ahead of the technical curve.
-					  I am looking for a role where I can merge my proficiency in Python and Java with cloud-native deployment strategies, contributing to a team that views "the impossible" simply as a prompt for the next great breakthrough.
-                    <br><br>
-                    I enjoy solving complex problems, writing clean code, and building systems that bridge the gap 
-                    between data and user experience. I am an adaptable learner, passionate about the 
-                    evolving landscape of Large Language Models and Cloud Computing.
-                  </p>
+                    <p>As a 2025 graduate stepping into the AI landscape, I design systems that think. My expertise lies in Agentic AI and RAG-based architectures.</p>
+                    <br>
+                    <h3>The Innovation Catalyst:</h3>
+                    <p>Driven by the belief that AI should be accessible and impact-oriented. I enjoy solving complex problems and writing clean, scalable code.</p>
                 </div>
 
                 <div id="edu" class="tab-body">
                     <div class="timeline-item">
                         <span class="year">2021 - 2025</span>
                         <h4>B.Tech Computer Science</h4>
-                        <p>Bharath Institute Of Higher Education and Research (BIHER) | CGPA: 9.4 (Current)</p>
+                        <p>BIHER | CGPA: 9.4</p>
                     </div>
                     <div class="timeline-item">
                         <span class="year">2019 - 2021</span>
                         <h4>Higher Secondary (MPC)</h4>
                         <p>Trinity Junior College</p>
                     </div>
-                    <div class="timeline-item">
-                        <span class="year">2019</span>
-                        <h4> Matriculation</h4>
-                        <p>Brooklyn Grammer High School</p>
-                    </div>
                 </div>
 
                 <div id="vision" class="tab-body">
                     <h3>My Goal</h3>
                     <p>To develop autonomous AI agents that solve real-world productivity challenges.</p>
-                    <ul class="vision-list">
+                    <ul class="vision-list" style="margin-top: 1rem;">
                         <li><i class="fa-solid fa-check"></i> Master Cloud Architecture (AWS/Azure)</li>
                         <li><i class="fa-solid fa-check"></i> Contribute to Open Source AI Projects</li>
                         <li><i class="fa-solid fa-check"></i> Build scalable AI-driven applications</li>
@@ -415,187 +343,66 @@
         </div>
     </section>
 
-    <section id="experience" class="section" style="background: rgba(255,255,255,0.01);">
+    <section id="experience" class="section">
         <h2 class="section-title fade-in"><span>Experience</span></h2>
         <div style="max-width: 1000px; margin: 0 auto;">
             <div class="experience-card fade-in">
                 <div class="exp-dot"></div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <div style="display: flex; justify-content: space-between;">
                     <h3>AI Engineer Trainee/Intern</h3>
-                    <span style="color: var(--accent); font-weight: 600;">oct 2025</span>
+                    <span style="color: var(--accent);">Dec 2025 - Present</span>
                 </div>
-                <h4 style="color: var(--text-gray); margin-bottom: 1rem;">CPS IT Technologies LLp</h4>
-                <p> Currently serving as an AI/ML Trainee & Intern, I have hands-on experience with Python, NLP, Generative AI, Agentic AI, RAG, LangChain, and Large Language Models (LLMs).
-				I am currently undergoing advanced training in Generative AI and Agentic AI.
-				I also handle end-to-end project deployment on AWS & GCP, delivering scalable AI solutions.</p>
-            </div>
-            
-            <div class="experience-card fade-in">
-                <div class="exp-dot"></div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                    <h3>Open Source Contributor</h3>
-                    <span style="color: var(--accent); font-weight: 600;">Present</span>
-                </div>
-                <h4 style="color: var(--text-gray); margin-bottom: 1rem;">GitHub Community</h4>
-                <p>Actively building and maintaining repositories focused on sentiment analysis and automation tools using Python and LLMs.</p>
+                <h4 style="color: var(--text-gray);">CPS IT Technologies LLP</h4>
+                <p>Hands-on experience with Python, NLP, GenAI, RAG, and LangChain. Handling end-to-end development and deployment on AWS & GCP.</p>
             </div>
         </div>
     </section>
 
-    <section id="skills" class="section">
-        <h2 class="section-title fade-in"><span>Technical Skills</span></h2>
-        <div class="skills-container">
-            <div class="skill-card fade-in" onclick="openModal('Java')">
-                <i class="fa-brands fa-java"></i>
-                <h4>Java</h4>
-                <div class="skill-hint">Click for info</div>
-            </div>
-            <div class="skill-card fade-in" onclick="openModal('Python')">
-                <i class="fa-brands fa-python"></i>
-                <h4>Python</h4>
-                <div class="skill-hint">Click for info</div>
-            </div>
-            <div class="skill-card fade-in" onclick="openModal('WebDev')">
-                <i class="fa-brands fa-html5"></i>
-                <h4>HTML5 / CSS3</h4>
-                <div class="skill-hint">Click for info</div>
-            </div>
-            <div class="skill-card fade-in" onclick="openModal('GenAI')">
-                <i class="fa-solid fa-wand-magic-sparkles"></i>
-                <h4>Generative AI</h4>
-                <div class="skill-hint">Click for info</div>
-            </div>
-            <div class="skill-card fade-in" onclick="openModal('AgenticAI')">
-                <i class="fa-solid fa-robot"></i>
-                <h4>Agentic AI</h4>
-                <div class="skill-hint">Click for info</div>
-            </div>
-            <div class="skill-card fade-in" onclick="openModal('LLM')">
-                <i class="fa-solid fa-microchip"></i>
-                <h4>LLMs & RAG</h4>
-                <div class="skill-hint">Click for info</div>
-            </div>
-            <div class="skill-card fade-in" onclick="openModal('LangStack')">
-                <i class="fa-solid fa-link"></i>
-                <h4>LangChain & Graph</h4>
-                <div class="skill-hint">Click for info</div>
-            </div>
-            <div class="skill-card fade-in" onclick="openModal('NLP')">
-                <i class="fa-solid fa-language"></i>
-                <h4>NLP</h4>
-                <div class="skill-hint">Click for info</div>
-            </div>
-            <div class="skill-card fade-in" onclick="openModal('DataCleaning')">
-                <i class="fa-solid fa-filter"></i>
-                <h4>Data Cleaning</h4>
-                <div class="skill-hint">Click for info</div>
-            </div>
-            <div class="skill-card fade-in" onclick="openModal('Cloud')">
-                <i class="fa-solid fa-cloud"></i>
-                <h4>AWS & GCP</h4>
-                <div class="skill-hint">Click for info</div>
-            </div>
-            <div class="skill-card fade-in" onclick="openModal('SQL')">
-                <i class="fa-solid fa-database"></i>
-                <h4>SQL / MySQL</h4>
-                <div class="skill-hint">Click for info</div>
-            </div>
-            <div class="skill-card fade-in" onclick="openModal('Git')">
-                <i class="fa-brands fa-git-alt"></i>
-                <h4>Git & GitHub</h4>
-                <div class="skill-hint">Click for info</div>
-            </div>
-        </div>
-    </section>
-
-    <section id="certifications" class="section">
-        <h2 class="section-title fade-in"><span>Certifications</span></h2>
-        <div class="cert-grid">
-            <div class="cert-card fade-in">
-                <div class="cert-icon"><i class="fa-solid fa-award"></i></div>
-                <div class="cert-info">
-                    <h4>Generative AI Fundamentals</h4>
-                    <p>Udemy</p>
-                </div>
-            </div>
-            <div class="cert-card fade-in">
-                <div class="cert-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                <div class="cert-info">
-                    <h4>Sql </h4>
-                    <p>IBM </p>
-                </div>
-            </div>
-            <div class="cert-card fade-in">
-                <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
-                <div class="cert-info">
-                    <h4>programming in Java </h4>
-                    <p>NPTEL</p>
-                </div>
-            </div>
-            <div class="cert-card fade-in">
-                <div class="cert-icon"><i class="fa-solid fa-code-branch"></i></div>
-                <div class="cert-info">
-                    <h4>Generative AI</h4>
-                    <p>Upgrad</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section">
-        <h2 class="section-title fade-in"><span>Recommendations</span></h2>
-        <div class="testimonial-grid fade-in">
-            <div class="testimonial-card">
-                <p class="quote">"Sricharan's ability to understand the complex landscape of Agentic AI and implement it into practical projects like accident detection is truly impressive."</p>
-                <span class="author">— Academic Mentor, BIHER</span>
-            </div>
-            <div class="testimonial-card">
-                <p class="quote">"An exceptionally dedicated engineer who bridges the gap between raw data and intelligent user experiences with clean, scalable code."</p>
-                <span class="author">— Project Supervisor</span>
-            </div>
-        </div>
-    </section>
-
-    <div id="skillModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <h3 id="modalTitle" style="color: var(--accent); margin-bottom: 1rem;">Skill Name</h3>
-            <ul id="modalList" class="modal-list"></ul>
-        </div>
-    </div>
-
+    <!-- PROJECTS SECTION -->
     <section id="projects" class="section">
         <h2 class="section-title fade-in"><span>Featured Projects</span></h2>
+        
+        <!-- ADVANCED PROJECTS -->
+        <h3 class="subsection-title fade-in">Advanced Projects</h3>
         <div class="projects-grid">
             <div class="project-card fade-in">
                 <div class="project-content">
                     <div>
-                        <h3>NLP-Sentiment Analysis</h3>
-                        <p class="project-tech"> Python Programming • HuggingFace • NLTK • AWS</p>
-                        <p style="color: #999; margin-bottom: 1rem;"> • Built a sentiment analysis system to classify text
- • Detects positive, negative, and neutral sentiments
- • Converts unstructured text into actionable insights</p>
+                        <h3>Realtime Accident Detection</h3>
+                        <p class="project-tech">Python • TensorFlow • Keras</p>
+                        <p style="color: #999;">An AI-driven detection system analyzing real-time data to improve emergency response times by 20%.</p>
                     </div>
-                    <a href="https://github.com/SRICHARAN-BASA/NLP-Sentiment-Analysis.git" target="_blank" rel="noopener noreferrer" style="color: var(--accent);"><i class="fa-brands fa-github"></i> View Code</a>
+                    <a href="https://github.com/SRICHARAN-BASA/Accidident-Detection-And-Response-System" target="_blank" style="color: var(--accent);"><i class="fa-brands fa-github"></i> View Code</a>
+                </div>
+            </div>
+             <div class="project-card fade-in">
+                <div class="project-content">
+                    <div>
+                        <h3>Ollama Fullstack chat Application</h3>
+                        <p class="project-tech"> Python • FastAPI • React.js • Ollama • AWS</p>
+                        <p style="color: #999;">A Full-stack GenAI application using React.js for front-end and FastAPI for back-end. deployed on AWS.</p>
+                    </div>
+                    <a href="https://github.com/SRICHARAN-BASA/Ollama_Application" target="_blank" style="color: var(--accent);"><i class="fa-brands fa-github"></i> View Code</a>
+                </div>
+            </div>
+            <div class="project-card fade-in">
+                <div class="project-content">
+                    <div>
+                        <h3>NLP-Sentiment Analysis</h3>
+                        <p class="project-tech"> Python • HuggingFace • NLTK • AWS</p>
+                        <p style="color: #999;">Built a sentiment analysis system to classify text into positive, negative, and neutral sentiments using NLP pipelines.</p>
+                    </div>
+                    <a href="https://github.com/SRICHARAN-BASA/NLP-Sentiment-Analysis.git" target="_blank" style="color: var(--accent);"><i class="fa-brands fa-github"></i> View Code</a>
                 </div>
             </div>
             <div class="project-card fade-in">
                 <div class="project-content">
                     <div>
                         <h3>Toxic Comment Classification</h3>
-                        <p class="project-tech">wordcloud • sklearn • pickle</p>
-                        <p style="color: #999; margin-bottom: 1rem;">A machine learning model that aims to develop a robust system for identifying and filtering toxic comments in online platforms.</p>
+                        <p class="project-tech">Wordcloud • Sklearn • Pickle</p>
+                        <p style="color: #999;">A machine learning model identifying and filtering toxic comments on online platforms with high accuracy.</p>
                     </div>
-                    <a href="https://github.com/SRICHARAN-BASA/Toxic-comment-classification.git" target="_blank" rel="noopener noreferrer" style="color: var(--accent);"><i class="fa-brands fa-github"></i> View Code</a>
-                </div>
-            </div>
-            <div class="project-card fade-in">
-                <div class="project-content">
-                    <div>
-                        <h3>Realtime Accident Detection</h3>
-                        <p class="project-tech">python • TensorFlow • keras</p>
-                        <p style="color: #999; margin-bottom: 1rem;">An AI-driven accident detection system, capable of analyzing real-time data points, leading to a 20% faster emergency response time.</p>
-                    </div>
-                    <a href="https://github.com/SRICHARAN-BASA/Accidident-Detection-And-Response-System" target="_blank" rel="noopener noreferrer" style="color: var(--accent);"><i class="fa-brands fa-github"></i> View Code</a>
+                    <a href="https://github.com/SRICHARAN-BASA/Toxic-comment-classification.git" target="_blank" style="color: var(--accent);"><i class="fa-brands fa-github"></i> View Code</a>
                 </div>
             </div>
             <div class="project-card fade-in">
@@ -603,9 +410,76 @@
                     <div>
                         <h3>Personal Portfolio</h3>
                         <p class="project-tech">HTML • CSS • JavaScript</p>
-                        <p style="color: #999; margin-bottom: 1rem;">The responsive website you are viewing right now, featuring animations, hover effects, and a modern UI.</p>
+                        <p style="color: #999;">Modern, responsive glassmorphism portfolio featuring scroll animations and dynamic components.</p>
                     </div>
-                    <a href="https://github.com/SRICHARAN-BASA/my-portfolio-project.git" target="_blank" rel="noopener noreferrer" style="color: var(--accent);"><i class="fa-brands fa-github"></i> View Code</a>
+                    <a href="https://github.com/SRICHARAN-BASA/my-portfolio-project.git" target="_blank" style="color: var(--accent);"><i class="fa-brands fa-github"></i> View Code</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- BASIC AI PROJECTS -->
+        <h3 class="subsection-title fade-in">Basic Projects of AI</h3>
+        <div class="projects-grid">
+            <div class="project-card fade-in">
+                <div class="project-content">
+                    <div>
+                        <h3>Simple AI chatbot</h3>
+                        <p class="project-tech">streamlit • python • GroqAPI</p>
+                        <p style="color: #999;">This project is a conversational AI chatbot built using Python and Streamlit. It works similar to ChatGPT where users can interact with an AI assistant in real time.</p>
+                    </div>
+                    <a href="https://github.com/SRICHARAN-BASA/SImple_AI_ChatBot" target="_blank" style="color: var(--accent);"><i class="fa-brands fa-github"></i> View Code</a>
+                </div>
+            </div>
+            <div class="project-card fade-in">
+                <div class="project-content">
+                    <div>
+                        <h3>Text summarizer</h3>
+                        <p class="project-tech">Python • PyPDF2 • streamlit</p>
+                        <p style="color: #999;">An AI-powered application that summarizes long paragraphs, articles, and PDF documents into short and meaningful summaries using LLMs.</p>
+                    </div>
+                    <a href="https://github.com/SRICHARAN-BASA/simple_Text_summarizer" target="_blank" style="color: var(--accent);"><i class="fa-brands fa-github"></i> View Code</a>
+                </div>
+            </div>
+            <div class="project-card fade-in">
+                <div class="project-content">
+                    <div>
+                        <h3>Resume Analyser</h3>
+                        <p class="project-tech">python • streamlit • Groq • PyPDF2 </p>
+                        <p style="color: #999;">Analyzes resumes against job descriptions and provides ATS-based improvement suggestions using Large Language Models.</p>
+                    </div>
+                    <a href="https://github.com/SRICHARAN-BASA/Resume_Analyser" target="_blank" style="color: var(--accent);"><i class="fa-brands fa-github"></i> View Code</a>
+                </div>
+            </div>
+            <div class="project-card fade-in">
+                <div class="project-content">
+                    <div>
+                        <h3>Content Generator</h3>
+                        <p class="project-tech">python • Groq • Session State</p>
+                        <p style="color: #999;">Generates high-quality content for blogs, LinkedIn posts, and Twitter/X threads using Large Language Models.</p>
+                    </div>
+                    <a href="https://github.com/SRICHARAN-BASA/AI_Content_Generator" target="_blank" style="color: var(--accent);"><i class="fa-brands fa-github"></i> View Code</a>
+                </div>
+            </div>
+            <div class="project-card fade-in">
+                <div class="project-content">
+                    <div>
+                        <h3>Code Explainer</h3>
+                        <p class="project-tech">python • streamlit • Groq</p>
+                        <p style="color: #999;">Helping users understand complex programming code in simple language using Large Language Models (LLMs).</p>
+                    </div>
+                    <a href="https://github.com/SRICHARAN-BASA/AI_Code_Explainer" target="_blank" style="color: var(--accent);"><i class="fa-brands fa-github"></i> View Code</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REFINED LINKEDIN SECTION -->
+    <section class="section" style="background: rgba(124, 58, 237, 0.02);">
+        <h2 class="section-title fade-in"><span>Professional Profile</span></h2>
+        <div class="fade-in linkedin-container">
+            <div class="badge-wrapper">
+                <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="HORIZONTAL" data-vanity="basa-sricharan" data-version="v1">
+                    <a class="badge-base__link LI-simple-link" href="https://in.linkedin.com/in/basa-sricharan">SRICHARAN BASA</a>
                 </div>
             </div>
         </div>
@@ -614,160 +488,53 @@
     <section id="contact" class="section">
         <h2 class="section-title fade-in"><span>Get In Touch</span></h2>
         <div class="contact-container fade-in">
-            <form class="contact-form" id="my-form" action="https://formspree.io/f/mnjaprzd" method="POST">
+            <form class="contact-form" action="https://formspree.io/f/mnjaprzd" method="POST">
                 <input type="text" name="name" placeholder="Your Name" required>
                 <input type="email" name="email" placeholder="Your Email" required>
                 <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                <button type="submit" id="submit-btn" class="btn-primary">Send Message</button>
+                <button type="submit" class="btn-primary" style="width: 100%;">Send Message</button>
             </form>
 
-            <div id="status" style="display: none; text-align: center; padding: 20px; background: rgba(124, 58, 237, 0.1); border: 1px solid var(--accent); border-radius: 8px; margin-top: 20px;">
-                <i class="fa-solid fa-circle-check" style="color: var(--accent); font-size: 2rem; margin-bottom: 10px;"></i>
-                <h3 style="color: #fff;">Thank You!</h3>
-                <p style="color: var(--text-gray);">Your message has been sent successfully. I'll get back to you soon.</p>
-            </div>
-
-            <div class="social-links" style="margin-top: 2rem;">
-                <a href="https://www.linkedin.com/in/basa-sricharan/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://github.com/SRICHARAN-BASA" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
-                <a href="mailto:sricharan7832@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+            <div class="social-links">
+                <a href="mailto:basasricharan6@gmail.com" title="Email Me"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/basa-sricharan" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/SRICHARAN-BASA" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
             </div>
         </div>
     </section>
 
-    <footer style="text-align: center; padding: 3rem; background: #050505; color: #666; border-top: 1px solid #111;">
-        <p>&copy; 2025 Basa Sricharan. Designed for the future of AI.</p>
+    <footer>
+        <p>&copy; 2026 SRICHARAN BASA. All rights reserved.</p>
     </footer>
 
+    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
     <script>
-        // --- 1. Scroll Fade-in Animation ---
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        });
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-        // --- 2. About Section Tab Logic ---
         function openAboutTab(evt, tabName) {
-            var i, tabBody, tabBtn;
-            tabBody = document.getElementsByClassName("tab-body");
-            for (i = 0; i < tabBody.length; i++) {
-                tabBody[i].style.display = "none";
-                tabBody[i].classList.remove("active-tab");
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-body");
+            for (i = 0; i < tabcontent.length; i++) { 
+                tabcontent[i].style.display = "none"; 
+                tabcontent[i].classList.remove("active-tab"); 
             }
-            tabBtn = document.getElementsByClassName("tab-btn");
-            for (i = 0; i < tabBtn.length; i++) {
-                tabBtn[i].className = tabBtn[i].className.replace(" active", "");
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) { 
+                tablinks[i].className = tablinks[i].className.replace(" active", ""); 
             }
             document.getElementById(tabName).style.display = "block";
-            setTimeout(() => {
-                document.getElementById(tabName).classList.add("active-tab");
-            }, 10);
+            document.getElementById(tabName).classList.add("active-tab");
             evt.currentTarget.className += " active";
         }
 
-        // --- 3. Skill Modal Logic ---
-        const skillData = {
-            "Java": ["OOPs Concepts", "Exception Handling", "Collections Framework", "Spring Boot Basics", "Multithreading"],
-            "Python": ["Data Structures", "Pandas & NumPy", "Flask / Django", "Automation Scripts"],
-            "WebDev": ["Semantic HTML5", "CSS3 Flexbox & Grid", "JavaScript (ES6+)", "Responsive Design"],
-            "GenAI": ["Prompt Engineering", "Image Generation (DALL-E/Midjourney)", "Stable Diffusion", "Content Synthesis"],
-            "AgenticAI": ["Autonomous Agents", "Multi-Agent Systems", "Task Planning & Reasoning", "Tool Use (Function Calling)"],
-            "LLM": ["Retrieval Augmented Generation (RAG)", "Vector Databases (Pinecone/Chroma)", "Fine-tuning Basics", "Tokenization & Embeddings"],
-            "LangStack": ["LangChain Framework", "LangGraph for State Machines", "Chain of Thought Prompting", "Memory Management"],
-            "NLP": ["Text Classification", "Sentiment Analysis", "Named Entity Recognition (NER)", "Transformers & BERT"],
-            "DataCleaning": ["Outlier Detection", "Handling Missing Values", "Feature Engineering", "Data Normalization"],
-            "Cloud": ["AWS (EC2, S3, Lambda)", "GCP (App Engine, Cloud Functions)", "Cloud Storage & Deployment", "Serverless Architecture"],
-            "SQL": ["Relational Design", "Joins & Subqueries", "Normalization", "ACID Properties"],
-            "Git": ["Version Control", "Branching & Merging", "Pull Requests", "CI/CD Basics"]
-        };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        const modal = document.getElementById("skillModal");
-        const modalTitle = document.getElementById("modalTitle");
-        const modalList = document.getElementById("modalList");
-
-        function openModal(skillKey) {
-            const displayNames = {
-                "WebDev": "HTML / CSS / JS",
-                "GenAI": "Generative AI",
-                "AgenticAI": "Agentic AI",
-                "LLM": "LLMs & RAG",
-                "LangStack": "LangChain & LangGraph",
-                "Cloud": "AWS & GCP"
-            };
-            modalTitle.innerText = displayNames[skillKey] || skillKey;
-            modalList.innerHTML = "";
-            if(skillData[skillKey]) {
-                skillData[skillKey].forEach(topic => {
-                    let li = document.createElement("li");
-                    li.innerText = topic;
-                    modalList.appendChild(li);
-                });
-            }
-            modal.style.display = "block";
-        }
-
-        function closeModal() {
-            modal.style.display = "none";
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-
-        // --- Back to Top Logic ---
         window.onscroll = function() {
             const btn = document.getElementById("backToTop");
-            if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
-                btn.style.display = "flex";
-            } else {
-                btn.style.display = "none";
-            }
+            if (document.documentElement.scrollTop > 500) btn.style.display = "flex";
+            else btn.style.display = "none";
         };
-
-        // --- 4. Form Submission Logic (AJAX) ---
-        var form = document.getElementById("my-form");
-        
-        async function handleSubmit(event) {
-            event.preventDefault();
-            var status = document.getElementById("status");
-            var data = new FormData(event.target);
-            var btn = document.getElementById("submit-btn");
-
-            btn.innerHTML = "Sending...";
-            btn.disabled = true;
-
-            fetch(event.target.action, {
-                method: form.method,
-                body: data,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    form.style.display = "none";
-                    status.style.display = "block";
-                } else {
-                    response.json().then(data => {
-                        alert("Oops! There was a problem submitting your form");
-                    })
-                }
-            }).catch(error => {
-                alert("Oops! There was a problem submitting your form");
-            }).finally(() => {
-                btn.innerHTML = "Send Message";
-                btn.disabled = false;
-            });
-        }
-        form.addEventListener("submit", handleSubmit);
     </script>
 </body>
-
 </html>
-
-
